@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">💰 Expense Tracker</h1>
+            <p class="text-gray-600">Track your expenses and see AI-powered spending predictions</p>
+        </header>
+
+        <!-- File Upload Section -->
+        <div class="mb-8 grid md:grid-cols-2 gap-6">
+            <div>
+                <label class="block mb-2 font-semibold">Upload Expenses CSV:</label>
+                <input type="file" id="expenseFile" accept=".csv" class="w-full p-3 border rounded-lg"/>
+            </div>
+            <div>
+                <label class="block mb-2 font-semibold">Upload Prediction File:</label>
+                <input type="file" id="predictionFile" accept=".txt" class="w-full p-3 border rounded-lg"/>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Left Column: Prediction -->
+            <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg p-6 text-white">
+                <div class="flex items-center mb-4">
+                    <div class="bg-white bg-opacity-20 rounded-full p-2 mr-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold">AI Prediction</h2>
+                </div>
+                <div id="predictionSection" class="text-center">
+                    <p class="text-lg mb-2">Next Week's Predicted Spending:</p>
+                    <p id="predictionAmount" class="text-3xl font-bold mb-2">$0.00</p>
+                    <p id="predictionTrend" class="text-sm opacity-90">Upload prediction file to see trend</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Expenses List -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-800">Expenses</h2>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-sm text-gray-500">Total:</span>
+                        <span id="totalAmount" class="text-xl font-bold text-green-600">$0.00</span>
+                    </div>
+                </div>
+                <div id="expensesList" class="space-y-3">
+                    <div id="emptyState" class="text-center py-12">
+                        <div class="text-gray-400 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-500 text-lg">No expenses loaded</p>
+                        <p class="text-gray-400 text-sm">Upload your CSV to display expenses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>Built with ❤️ for expense tracking and AI predictions</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
